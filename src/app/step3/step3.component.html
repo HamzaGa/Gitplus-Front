@@ -1,0 +1,57 @@
+<br><br>
+<div class="container-fluid">
+    <br><br>
+    <ul class="list-unstyled multi-steps">
+      <li>Type de projet</li>
+      <li >Base de données</li>
+      <li class="is-active">Télécharger le projet</li>
+      <li>Partagez !</li>
+    </ul>
+  </div>
+
+
+  <div class="row">
+      <br><br><br>
+      <form (ngSubmit)="onSubmit()">          
+      <div *ngIf="typeDuProjet === 'Simple'" style="padding-left:43%">
+          <label for="contact-name"><strong>Importez votre projet {{projetSimple}} ({{extension}})</strong></label>                  
+          <div class="form-group">
+              <input accept="{{extension}}" type="file" name="file" (change)="onFileChange($event)" id="avatar">
+              <br><br>
+            </div>
+      </div>
+
+      <div *ngIf="typeDuProjet === 'Composed'"  style="padding-left:43%">
+          <label for="contact-name"><strong>Importez votre Frontend</strong></label>                  
+          <div class="form-group">
+              <input accept=".sql" type="file" name="file" (change)="onFileChange($event)" id="avatar">
+              <br><br>
+            </div>
+            <label for="contact-name"><strong>Importez votre Backend</strong></label>                  
+            <div class="form-group">
+                <input accept=".sql" type="file" name="file" (change)="onFileChange($event)" id="avatar">
+                <br><br>
+              </div>
+      </div>
+      <div *ngIf="loading === 'true'" class="loader">
+          <div class="circle">
+            <div class="inner-circle">
+              </div>
+            </div>
+          </div> 
+                <h4 *ngIf="resultat && resultat != 'erreur'" style="text-align:center">Votre projet a été importé avec <font color="green">success </font>.
+                </h4>
+
+                <h4 *ngIf="resultat === 'erreur'" style="text-align:center">Une <b><font color="red">erreur</font></b> est survenue.
+                  </h4>
+
+                <br>
+                <div style="padding-left:43%">
+        <p style="padding-left:4.5%">
+        <button  type="submit" class={{class}}>Étape suivante <i class="fa fa-spinner fa-spin fa-fw"></i></button>
+        </p>  <br><br><br><br><br><br><br><br><br><br><br>
+      
+  </div>
+</form>
+
+  </div>

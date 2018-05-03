@@ -1,0 +1,52 @@
+<br><br>
+<div class="container-fluid">
+    <br><br>
+    <ul class="list-unstyled multi-steps">
+      <li class="is-active">Type de projet</li>
+      <li>Base de données</li>
+      <li>Télécharger le projet</li>
+      <li>Partagez !</li>
+    </ul>
+  </div>
+
+  <div class="row">
+<br><br><br>
+<div style="padding-left:45%">
+    <form (ngSubmit)="onSubmit()">        
+  <p class="input-block">
+      <label for="contact-name"><strong>Type du projet</strong></label>
+      <select [(ngModel)]="typeDuProjet" name="typeDuProjet">
+          <option value="Simple"> Simple </option>
+          <option value="Composed"> Composé ( Front + Back ) </option>
+      </select>
+    </p>
+    <p *ngIf="typeDuProjet === 'Simple'" class="input-block">
+      <select [(ngModel)]="projetSimple"  name="projetSimple">
+          <option value="php"> PHP (ZIP) </option>
+          <option value="j2ee"> J2EE (WAR) </option>
+        </select>
+    </p>
+    <p *ngIf="typeDuProjet === 'Composed'" class="input-block">
+        <label for="contact-name"><strong>Frontend</strong></label>        
+      <select [(ngModel)]="projetComposeFront" name="projetComposeFront">
+          <option value="angular"> Angular </option>
+        </select>
+    </p>
+    <p *ngIf="typeDuProjet === 'Composed'" class="input-block">
+        <label for="contact-name"><strong>Backend</strong></label>        
+      <select [(ngModel)]="projetComposeBack" name="projetComposeBack">
+          <option value="php"> PHP (ZIP) </option>
+          <option value="j2ee"> J2EE (WAR) </option>
+        </select>
+    </p>
+
+    <br><br>
+    <p style="padding-left:4.5%"><button  type="submit" class="btn btn-success">Étape suivante</button></p>
+    </form>
+  </div>
+  <br><br><br>
+
+  <br><br><br>
+  <br><br><br>
+  
+  </div>

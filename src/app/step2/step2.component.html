@@ -1,0 +1,55 @@
+<br><br>
+<div class="container-fluid">
+    <br><br>
+    <ul class="list-unstyled multi-steps">
+      <li>Type de projet</li>
+      <li class="is-active">Base de données</li>
+      <li>Télécharger le projet</li>
+      <li>Partagez !</li>
+    </ul>
+  </div>
+
+
+  <div class="row">
+      <br><br><br>
+      <form (ngSubmit)="onSubmit()">          
+      <div style="padding-left:43%">
+        <p class="input-block">
+            <label for="contact-name"><strong>Votre projet nécessite-il une base de donées ?</strong></label>
+            <select [(ngModel)]="ouiOuNon" name="ouiOuNon" (ngModelChange)="onChange($event)">
+                <option value="Oui"> Oui </option>
+                <option value="Non"> Non </option>
+            </select>
+        </p>
+        
+        
+            <div *ngIf="ouiOuNon === 'Oui'" class="form-group">
+              <input accept=".sql" type="file" name="file" (change)="onFileChange($event)" id="avatar">
+              <br><br>
+            </div>
+            
+            <div *ngIf="loading === 'true'" style="padding-right: 74%" class="loader">
+                <div class="circle">
+                  <div class="inner-circle">
+                    </div>
+                  </div>
+                </div> 
+                </div>
+                <h4 *ngIf="resultat && resultat != 'erreur'" style="text-align:center">Votre base de données a été importée avec <font color="green">success </font>. Veuillez remplacer le chemin de la datasource de votre projet par celui-ci :
+                <br><br>
+                <b>{{resultat}}</b>
+                </h4>
+
+                <h4 *ngIf="resultat === 'erreur'" style="text-align:center">Une <b><font color="red">erreur</font></b> est survenue.
+                  </h4>
+
+                <br>
+                <div style="padding-left:43%">
+        <p style="padding-left:4.5%">
+        <button  type="submit" class={{class}}>Étape suivante <i class="fa fa-spinner fa-spin fa-fw"></i></button>
+        </p>  <br><br><br><br><br><br><br><br><br><br><br>
+      
+  </div>
+</form>
+
+  </div>

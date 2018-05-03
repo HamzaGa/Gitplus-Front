@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input type="file" name="file" (change)="onFileChange($event)" id="avatar">
+  </div>
+  <button type="submit" class="btn btn-success">Submit <i class="fa fa-spinner fa-spin fa-fw"></i></button>
+</form>

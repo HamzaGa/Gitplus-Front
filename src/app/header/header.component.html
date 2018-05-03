@@ -1,0 +1,39 @@
+<div *ngIf="logged">
+		
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<title>Acceuil</title>
+	
+
+	<script>_V_.options.flash.swf = 'assets/js/video-js.swf';</script>
+</head>
+
+
+<header id="header" class="container clearfix">
+
+	<a href="index-2.html" id="logo">
+		<img src="assets/img/logo.png" alt="SmartStart">
+	</a>
+	<nav id="main-nav" style="padding-right: 40%;">
+		
+		<ul>
+			<li routerLinkActive="current" [routerLinkActiveOptions]="{ exact: true }">
+				<a routerLink="" data-description="Tout commence ici">Acceuil</a>
+			</li>
+			<li routerLinkActive="current">
+				<a routerLink="login" data-description="Profitez !">Log In</a>
+			</li>
+			<li  [class.current]="router.isActive('/step1') || router.isActive('/step2') || router.isActive('/step3') || router.isActive('/step4') ">
+				<a routerLink="step1" data-description="Passez live !">Telecharger</a>
+			</li>
+			
+		</ul>
+
+	</nav>
+	<!-- end #main-nav -->
+	
+</header><!-- end #header -->
+</div>

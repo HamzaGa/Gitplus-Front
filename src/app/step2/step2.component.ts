@@ -59,7 +59,7 @@ export class Step2Component implements OnInit {
       this.baseDeDonnes.fileName=this.file.name;
       this.baseDeDonnes.file=reader.result;      
      this.step2Service.deployDatabase(this.baseDeDonnes).toPromise( ).then(
-      res => {this.loading="false"; this.resultat = res.message; this.table=res.table; this.class="btn btn-success"; this.disabled="false"},
+      res => {this.loading="false";  this.resultat = res.message; this.table=res.table;  this.class="btn btn-success"; this.disabled="false"},
        error =>  { this.loading="false"; this.resultat= "erreur"; }
       
      )

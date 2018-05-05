@@ -22,15 +22,39 @@
       </div>
 
       <div *ngIf="typeDuProjet === 'Composed'"  style="padding-left:43%">
-          <label for="contact-name"><strong>Importez votre Frontend</strong></label>                  
+          <label for="contact-name"><strong>Importez votre Backend {{projetComposeBack}} ({{extension}})</strong></label>                  
           <div class="form-group">
-              <input accept=".sql" type="file" name="file" (change)="onFileChange($event)" id="avatar">
+              <input accept="{{extension}}" type="file" name="file" (change)="onFileChangeBackend($event)" id="avatar">
               <br><br>
+              <div *ngIf="loadingBack === 'true'" class="loader" style="padding-right:75%">
+                <div class="circle">
+                  <div class="inner-circle">
+                    </div>
+                  </div>
+                </div> 
+              <br>
+              
             </div>
-            <label for="contact-name"><strong>Importez votre Backend</strong></label>                  
+      </div>
+      <h4  *ngIf="resultatBack && resultatBack != 'erreur'"  style="text-align:center">Votre backend a été importé avec <font color="green">success </font>. Veuillez modifier le chemin de base du backend de votre front par celui ci : {{resultatBack}}
+        <br><br>
+      </h4>
+
+      <h4 *ngIf="resultatBack === 'erreur'" style="text-align:center">Une <b><font color="red">erreur</font></b> est survenue.
+        <br><br>
+        </h4>
+      <div *ngIf="typeDuProjet === 'Composed' && resultatBack && resultatBack != 'erreur'"  style="padding-left:43%">
+            <label for="contact-name"><strong>Importez votre Frontend {{projetComposeFront}} ({{extensionFront}})</strong></label>                  
             <div class="form-group">
-                <input accept=".sql" type="file" name="file" (change)="onFileChange($event)" id="avatar">
+                <input accept="{{extensionFront}}" type="file" name="file" (change)="onFileChangeFrontend($event)" id="avatar">
                 <br><br>
+                <div *ngIf="loadingFront === 'true'" class="loader" style="padding-right:75%">
+                  <div class="circle">
+                    <div class="inner-circle">
+                      </div>
+                    </div>
+                  </div> 
+                <br>
               </div>
       </div>
       <div *ngIf="loading === 'true'" class="loader">
@@ -39,10 +63,10 @@
               </div>
             </div>
           </div> 
-                <h4 *ngIf="resultat && resultat != 'erreur'" style="text-align:center">Votre projet a été importé avec <font color="green">success </font>.
+                <h4 *ngIf="resultatFront && resultatFront != 'erreur'" style="text-align:center">Votre Front a été importé avec <font color="green">success </font>. {{resultatFront}}
                 </h4>
 
-                <h4 *ngIf="resultat === 'erreur'" style="text-align:center">Une <b><font color="red">erreur</font></b> est survenue.
+                <h4 *ngIf="resultatFront === 'erreur'" style="text-align:center">Une <b><font color="red">erreur</font></b> est survenue.
                   </h4>
 
                 <br>
